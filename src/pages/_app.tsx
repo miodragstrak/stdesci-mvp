@@ -1,6 +1,11 @@
-import "@/styles/globals.css";
-import type { AppProps } from "next/app";
+import { WalletProvider } from '@solana/wallet-adapter-react';  // proveri tačan import
 
-export default function App({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />;
+function MyApp({ Component, pageProps }) {
+  return (
+    <WalletProvider>
+      <Component {...pageProps} />
+    </WalletProvider>
+  );
 }
+
+export default MyApp;
